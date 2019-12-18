@@ -14,7 +14,7 @@
 
 2. In your ```~/Projects``` folder create a new folder (use ```mkdir``` or Finder/File Manager) named ```phpmyadmin```
 
-3. Back in the ```$ ~/Homestead``` folder edit the ```Homestead.yaml``` file to include "folder" and "site" mapping (phpmyadmin.local) to the ```phpmyadmin``` folder you just created
+3. Back in the ```$ ~/Homestead``` folder edit the ```Homestead.yaml``` file to include "folder" and "site" mapping (phpmyadmin.test) to the ```phpmyadmin``` folder you just created
 
 4. ```$ vagrant up```
 
