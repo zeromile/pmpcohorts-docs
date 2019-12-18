@@ -1,6 +1,6 @@
 # Install ```phpmyadmin``` on your Laravel Homestead box #
 
-#### NOTE: Before destroying the Vagrant box, **and losing all our database entries**, you should backup the database ####
+### NOTE: Before destroying the Vagrant box, **and losing all our database entries**, you should backup the database ###
 
 1. ```$ vagrant ssh``` into your vagrant box
 
@@ -8,7 +8,7 @@
 
 3. Run ```$ mysqldump portal > portal.sql``` - This will create a SQL file so that we can re-import once phpmyadmin is running
 
-#### Make sure the portal.sql file is not empty (```cat``` it) then ```$ exit``` out of your Vagrant box and proceed... (you should be in the ```~/Homestead``` folder) ####
+### Make sure the portal.sql file is not empty (```cat``` it) then ```$ exit``` out of your Vagrant box and proceed... (you should be in the ```~/Homestead``` folder) ###
 
 1. ```$ vagrant destroy```
 
@@ -28,7 +28,7 @@
 
 9. In your browser try visiting  ```phpmyadmin.local```  (username is 'root' and password is 'secret')
 
-#### Now that phpmyadmin is running, we'll need to fix a thing in the sql file and then import it ####
+### Now that phpmyadmin is running, we'll need to fix a thing in the sql file and then import it ###
 
 1. ssh Into your vagrant box
 
