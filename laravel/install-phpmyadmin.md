@@ -22,7 +22,7 @@
 
 6. Run ```$ composer create-project phpmyadmin/phpmyadmin``` in your ```vagrant``` folder - DO NOT run this from within your ```phpmyadmin``` folder!
 
-7. ```$ composer update```
+7. ```$ cd``` into the laravel folder and then run ```$ composer update```
 
 8. Edit your "hosts" file (mac: ```$ sudo nano /etc/hosts```) to add an entry for ```phpmyadmin.test``` that points to your Vagrant box's IP address of  ```192.168.10.10``` (if one already exists do not add one)
 
