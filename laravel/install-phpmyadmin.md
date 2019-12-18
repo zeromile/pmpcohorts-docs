@@ -24,9 +24,9 @@
 
 7. ```$ composer update```
 
-8. Edit your "hosts" file (mac: ```$ sudo nano /etc/hosts```) to add an entry for ```phpmyadmin.local``` that points to your Vagrant box's IP address of  ```192.168.10.10``` (if one already exists do not add one)
+8. Edit your "hosts" file (mac: ```$ sudo nano /etc/hosts```) to add an entry for ```phpmyadmin.test``` that points to your Vagrant box's IP address of  ```192.168.10.10``` (if one already exists do not add one)
 
-9. In your browser try visiting  ```phpmyadmin.local```  (username is 'root' and password is 'secret')
+9. In your browser try visiting  ```phpmyadmin.test```  (username is 'root' and password is 'secret')
 
 ### Now that phpmyadmin is running, we'll need to fix a thing in the sql file and then import it ###
 
