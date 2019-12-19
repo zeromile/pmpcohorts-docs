@@ -24,7 +24,7 @@
 
 7. ```$ cd``` into the laravel folder and then run ```$ composer update```
 
-8. Edit your "hosts" file (mac: ```$ sudo nano /etc/hosts```) to add an entry for ```phpmyadmin.test``` that points to your Vagrant box's IP address of  ```192.168.10.10``` (if one already exists do not add one)
+8. Exit ssh and then edit your "hosts" file (mac: ```$ sudo nano /etc/hosts```) to add an entry for ```phpmyadmin.test``` that points to your Vagrant box's IP address of  ```192.168.10.10``` (if one already exists do not add one)
 
 9. In your browser try visiting  ```phpmyadmin.test```  (username is 'root' and password is 'secret')
 
