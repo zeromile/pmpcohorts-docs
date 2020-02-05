@@ -22,9 +22,57 @@ Request comes in and in the routes file load the necessary controller. Controlle
 
 ### Challenge ###
 1. Register a new "get" route for ```/test```
-2. Create a new blade view file named ```test```
-3. Add the basic boilerplate HTML (!+TAB in a new CodePen project then copy and paste into this blade file)
-4. Test by entering ```192.168.10.10/test``` in your browser
+2. Make sure that the new route returns the view of the ```'test'``` blade file. Should like like this ->
+   ```
+   Route::get('/test', function () {  
+      return view('test');  
+    });  
+```
+3. Create a new blade view file named ```test``` -> In the ```/resources/views/``` folder create a new file named ```test.blade.php```
+4. Add basic boilerplate HTML -> !+TAB in a new CodePen project then copy and paste into this blade file OR manually type the HTML
+5. Add an ```<h1>``` tag with the contents of ```Test```
+6. Test by entering ```192.168.10.10/test``` in your browser
 
 ## Passing Request Data to Views ##
-We can capture the variables set in the URL string of the request by "requesting" them from the Route
+We can capture the variables set in the URL string of the request by "requesting" them from the Route (which reads them from the browser url). Add this route ->
+
+```
+  Route::get(‘/test-request’, function () {
+    $name = request('name');
+
+    return $name;
+  });
+```
+Notice that we added ```test-request``` after the ```/``` and a var set using the ```request``` function (not related to the URI segment in the route). We also are not returning a view. Instead we are just going to display whatever the variable $name is set to.
+
+After adding this route open your browser and type this as the URL request ```192.168.10.10/test-request?name=Bob```
+
+Try it with different names! Make sure that ```name``` is always ```name```. The request function in your route is pulling the value for this from the URL, ```name=whateveryouwant```.
+
+> **Heads Up:** The basic routing that we are learning here is just that, _basic_. The routing will get more complicated but we are learning the basics to help us fundamentally understand that requests sent to the Laravel framework from a browser (or API request, form request, etc) are not _pulling_ information. Requests to the framework are considered _input_ and we, as devs, program the framework to react to that input.
+
+The next trick is to do something useful with that ```name``` data, like, maybe sending it to a blade file? Yes. Let's do that!
+
+- We'll need to edit our route code to call a blade file ->  
+```
+  Route::get(‘/test-request’, function () {
+    $name = request('name');
+
+    return view('test-request');
+    });
+```
+- Then we'll have to create a blade file named ```test-request.blade.php``` in the ```/resources/views/``` folder
+  - Open the ```test-request``` blade file and add this code ->
+```
+  <p>{{ $name }}</p>
+```
+- Save everything, open your browser, and type the following into your browser's URL field -> ```192.168.10.10/test-request?name=Bob```
+- You should see ```Bob``` displayed in your browser
+
+> The "enclosure" characters **{{ }}** are a special directive that tells the Laravel framework to "echo" the contents within but first process whatever is in there through a series of encoding checks to remove bad stuff that could compromise your database, server, or Laravel
+
+### Challenge ###
+1. Create a new blade file called data.blade.php
+2. In web.php create a new route to the blade file
+3. The route should pass along at least 3 elements of data in an array to the blade file
+4. Use @ directives in the blade file to iterate through and display each of the array elements passed to it…as a LIST!
