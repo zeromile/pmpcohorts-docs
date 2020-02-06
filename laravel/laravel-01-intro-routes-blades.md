@@ -23,10 +23,10 @@ Request comes in and in the routes file load the necessary controller. Controlle
 ### Challenge ###
 1. Register a new "get" route for ```/test```
 2. Make sure that the new route returns the view of the ```'test'``` blade file. Should like like this ->
-   ```
+```
    Route::get('/test', function () {  
       return view('test');  
-    });  
+    });
 ```  
 
 3. Create a new blade view file named ```test``` -> In the ```/resources/views/``` folder create a new file named ```test.blade.php```
