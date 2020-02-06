@@ -43,15 +43,15 @@ We can capture the variables set in the URL string of the request by "requesting
     return $name;
   });
 ```
-Notice that we added ```test-request``` after the ```/``` and a var set using the ```request``` function (not related to the URI segment in the route). We also are not returning a view. Instead we are just going to display whatever the variable $name is set to.
+Notice that we added ```test-request``` after the ```/``` and a var set using the ```request``` helper function (not related to the URI segment in the route). This request helper is looking for a key in the URL string called ```name``` and setting the variable named ```$name``` to be whatever that request helper finds for the ```name``` key. We are not returning a view. Instead we are just going to display whatever the variable ```$name``` is set to.
 
 After adding this route open your browser and type this as the URL request ```192.168.10.10/test-request?name=Bob```
 
-Try it with different names! Make sure that ```name``` is always ```name```. The request function in your route is pulling the value for this from the URL, ```name=whateveryouwant```.
+Try it with different values for name! The request helper function in your route is pulling the value for this key from the URL, ```name=whateveryouwant```.
 
 > **Heads Up:** The basic routing that we are learning here is just that, _basic_. The routing will get more complicated but we are learning the basics to help us fundamentally understand that requests sent to the Laravel framework from a browser (or API request, form request, etc) are not _pulling_ information. Requests to the framework are considered _input_ and we, as devs, program the framework to react to that input.
 
-The next trick is to do something useful with that ```name``` data, like, maybe sending it to a blade file? Yes. Let's do that!
+The next trick is to do something useful with that ```$name``` data, like, maybe sending it to a blade file? Yes. Let's do that!
 
 - We'll need to edit our route code to call a blade file ->  
 ```
@@ -61,18 +61,26 @@ The next trick is to do something useful with that ```name``` data, like, maybe 
     return view('test-request');
     });
 ```
+- Unfortunately, this code will not automatically pass the $name variable to the ```test-request``` blade file. Remember, variables set inside of functions are scoped to that function only...unless we pass them along in a functions call (or set them as part of a global object). Because ```view()``` is a function we're calling, we can include data as an additional parameter.  
+- The first parameter of the view function is the name of the blade file. The second, optional, parameter can be an array that contains key=>value pairs. In our case we will set a key's value to the value of the ```$name``` variable. Our new code will look like this ->
+```
+  Route::get(‘/test-request’, function () {
+    $name = request('name');
+
+    return view('test-request', [ 'name' => $name ]);
+    });
+```
 - Then we'll have to create a blade file named ```test-request.blade.php``` in the ```/resources/views/``` folder
   - Open the ```test-request``` blade file and add this code ->
 ```
   <p>{{ $name }}</p>
 ```
+> **Heads Up:** The "enclosure" characters **{{ }}** are a special directive that tells the Laravel framework to "echo" the contents within but first process whatever is in there through a series of encoding checks to remove bad stuff that could compromise your database, server, or Laravel
 - Save everything, open your browser, and type the following into your browser's URL field -> ```192.168.10.10/test-request?name=Bob```
 - You should see ```Bob``` displayed in your browser
 
-> The "enclosure" characters **{{ }}** are a special directive that tells the Laravel framework to "echo" the contents within but first process whatever is in there through a series of encoding checks to remove bad stuff that could compromise your database, server, or Laravel
 
 ### Challenge ###
-1. Create a new blade file called data.blade.php
-2. In web.php create a new route to the blade file
-3. The route should pass along at least 3 elements of data in an array to the blade file
-4. Use @ directives in the blade file to iterate through and display each of the array elements passed to it…as a LIST!
+1. Add more request helpers to the Route that will find keys ```age``` and ```city```.
+2. pass those variables in the view function as additional key=>value pairs in the view function array parameter.
+3. Echo those variables in the ```test-request``` view file using the {{}} enclosure characters
