@@ -27,7 +27,8 @@ Request comes in and in the routes file load the necessary controller. Controlle
    Route::get('/test', function () {  
       return view('test');  
     });  
-```
+```  
+
 3. Create a new blade view file named ```test``` -> In the ```/resources/views/``` folder create a new file named ```test.blade.php```
 4. Add basic boilerplate HTML -> !+TAB in a new CodePen project then copy and paste into this blade file OR manually type the HTML
 5. Add an ```<h1>``` tag with the contents of ```Test```
