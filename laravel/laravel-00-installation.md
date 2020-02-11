@@ -30,12 +30,13 @@ But once it’s running, it’s great…usually…
 - Run the installer (bash init.sh or init.bat on windows)
 - Edit the Homestead.yaml file
     - “provider:” should be designated as “virtualbox”
-    - “folders:” should be…. (Because https://stackoverflow.com/questions/24506192/vagrant-laravel-homestead-ssh-authentication-failed)
+    - “folders:” should be:
         - “map: ~/Projects/laravel” (assuming you placed your Projects folder into your user folder like you were instructed!!)
-        - “to: /home/vagrant/laravel”
+        - “to: /home/vagrant/laravel
     - “sites:” should be…
         - “map: homestead.test”
         - “to: /home/vagrant/laravel/public”
+    - (reference: https://stackoverflow.com/questions/24506192/vagrant-laravel-homestead-ssh-authentication-failed)
 - Create a new folder for our Laravel project called “laravel” in our Projects folder
 - In the /Homestead folder vagrant up
 - Now we need to install Composer to install Laravel…which basically means it downloads a Laravel bootstrap collection of files so that you just type “laravel new” to start a new laravel project. However, Composer wants to live in the environment that your database, server, and php lives in. Some of us probably have PHP installed on our laptops but the configuration is going to be all over the place. So, we’ll need to do the composer stuff inside our Homestead Vagrant box. AAAAAND Our vagrant box already has composer installed! So really, now all we need to do is install the laravel installer.
