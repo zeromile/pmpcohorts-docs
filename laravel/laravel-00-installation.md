@@ -41,7 +41,7 @@ But once it’s running, it’s great…usually…
 - In the /Homestead folder vagrant up
 - Now we need to install Composer to install Laravel…which basically means it downloads a Laravel bootstrap collection of files so that you just type "laravel new" to start a new laravel project. However, Composer wants to live in the environment that your database, server, and php lives in. Some of us probably have PHP installed on our laptops but the configuration is going to be all over the place. So, we’ll need to do the composer stuff inside our Homestead Vagrant box. AAAAAND Our vagrant box already has composer installed! So really, now all we need to do is install the laravel installer.
 - SSH into the Vagrant box (vagrant ssh)
-- Install Composer with "composer global require laravel/installer"
+- Install Composer with "```composer global require laravel/installer```"
 - Now cd into the laravel folder, which will be at /home/vagrant/laravel
 - Create a new laravel install in this folder by typing "laravel new"
 - The installer will copy in the laravel template files and then download and install what are called dependencies
