@@ -14,8 +14,8 @@ Request comes in and in the routes file load the necessary controller. Controlle
 - The default route (as seen in the web.php file) handles requests that come in for the "root" of our site - aka ```/```.
 - This request then triggers a closure (function) that returns a "view" function that returns the "welcome page" "blade" file to the requestor's browser.
 - Blade files are in the resources/views folder
-- Find the "welcome" blade file and change the heading ("Laravel") to something else (like, maybe your name?)
-- Register a new "get" route for ```/welcome``` (hint: copy and paste the existing route and add ```welcome``` after the ```/```)
+- Find and open the "welcome" blade file (```welcome.blade.php```) and change the h1 heading from ```"Laravel"``` to something else (like, maybe your name?). Save your file!
+- In the ```web.php``` file register a new "get" Route for ```/welcome``` (hint: copy and paste the existing Route and add ```welcome``` after the ```/```)
 - In your browser try requesting ```192.168.10.10/```, then ```192.168.10.10/welcome```, then try anything else (like ```192.168.10.10/bob```) ...you will get 404 errors. This is because no routes have been set up for these URI segments.
 
 > **Fun Fact:** The ```::``` is called the *Paamayim Nekudotayim* (which  means "double-colon" in Hebrew). It allows you to access the "original" versions of the methods and properties of a class that may have been changed or overwritten by a child class.
