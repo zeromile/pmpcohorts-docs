@@ -20,7 +20,9 @@ But once it’s running, it’s great…usually…
 
 ## Setup ##
 
-- Vagrant and VirtualBox should already be installed
+- Vagrant and VirtualBox should already be installed from precious stuff we've done...if not, install them!
+  - VirtualBox: https://www.virtualbox.org/
+  - Vagrant: https://www.vagrantup.com/
 - Add the laravel/homestead box to your vagrant boxes
   - ```$ vagrant box add laravel/homestead```
 - While that is downloading lets install the Homestead manager (https://laravel.com/docs/5.8/homestead) called "Homestead"
