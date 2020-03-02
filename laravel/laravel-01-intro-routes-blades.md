@@ -9,7 +9,7 @@
 Request comes in and in the routes file load the necessary controller. Controller then delegates loading all the information necessary to the request then sends it to the view which presents it
 
 ## Routing ##
-- Open Laravel project folder in your code editor
+- Open the Laravel project folder in your code editor
 - The ```/Routes``` folder contains a file called ```web.php```. This file "routes" - or directs - requests that come from the "Web" (usually by typing a URL in the browser). In a nutshell, this file is where you register all routes for your application.
 - The default route (as seen in the web.php file) handles requests that come in for the "root" of our site - aka ```/```.
 - This request then triggers a closure (function) that returns a "view" function that returns the "welcome page" "blade" file to the requestor's browser.
